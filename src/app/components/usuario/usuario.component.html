@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Formulario de usuario</h1>
+    <form #formUsuario="ngForm">
+        <label for="tipo_documento">Tipo Documento</label>
+        <select class="form-select" aria-label="Default select example" required name="tipo_documento"
+            id="tipo_documento" #tipodocumento="ngModel" [(ngModel)]="usuario.tipodocumento" tipodocumento>
+            <option selected>Escoge tu opción</option>
+            <option value="CC">Cédula</option>
+            <option value="TI">Tarjeta de Identidad</option>
+            <option value="PA">Pasaporte</option>
+        </select>
+        <label for="numero_documento">Número Documento</label>
+        <input class="form-control" type="text" placeholder="Número de documento" aria-label="default input example"
+            required name="numero_documento" id="numero_documento" #documento="ngModel" [(ngModel)]="usuario.documento"
+            documento>
+        <label for="nombre">Nombre</label>
+        <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example" required
+            name="nombre" id="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre" nombre>
+        <label for="apellido">Apellido</label>
+        <input class="form-control" type="text" placeholder="apellido" aria-label="default input example" required
+            name="apellido" id="apellido" #apellido="ngModel" [(ngModel)]="usuario.apellido" apellido>
+        <label for="direccion">Dirección</label>
+        <input class="form-control" type="text" placeholder="Dirección" aria-label="default input example" required
+            name="direccion" id="direccion" #direccion="ngModel" direccion [(ngModel)]="usuario.direccion">
+        <label for="telefono">Telefono</label>
+        <input class="form-control" type="text" placeholder="Telefono" aria-label="default input example" required
+            name="telefono" id="telefono" #telefono="ngModel" telefono [(ngModel)]="usuario.telefono">
+        <label for="correo">Correo</label>
+        <input class="form-control" type="email" placeholder="Correo" aria-label="default input example" required
+            name="correo" id="correo" #correo="ngModel" [(ngModel)]="usuario.correo" correo>
+        <label for="clave">Clave</label>
+        <input class="form-control" type="password" placeholder="Clave" aria-label="default input example" required
+            name="clave" id="clave" #clave="ngModel" [(ngModel)]="usuario.clave" clave>
+        <hr>
+        <button class="btn btn-primary" (click)="registrarUsuario()">Registrar</button>
+
+    </form>
+</div>

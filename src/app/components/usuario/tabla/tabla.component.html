@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="text-center">Tabla de usuarios</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Tipo y documento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Telefono</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of usuarios">
+            <th >{{item.tipodocumento}} - {{item.documento}}</th>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido}}</td>
+            <td>{{item.telefono}}</td>
+            <td><button class="btn btn-warning">Modificar</button></td>
+            <td><button class="btn btn-danger" (click)="eliminarUsuario(item)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
