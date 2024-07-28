@@ -4,35 +4,85 @@
         <label for="tipo_documento">Tipo Documento</label>
         <select class="form-select" aria-label="Default select example" required name="tipo_documento"
             id="tipo_documento" #tipodocumento="ngModel" [(ngModel)]="usuario.tipodocumento" tipodocumento>
-            <option selected>Escoge tu opción</option>
             <option value="CC">Cédula</option>
             <option value="TI">Tarjeta de Identidad</option>
             <option value="PA">Pasaporte</option>
         </select>
+        <div *ngIf="tipodocumento.errors?.['required']">
+            <div class="alert alert-warning form-alert-show"
+                *ngIf="tipodocumento.invalid && (tipodocumento.dirty || tipodocumento.touched)">
+               Tipo de documento es obligatorio
+            </div>
+        </div>
         <label for="numero_documento">Número Documento</label>
         <input class="form-control" type="text" placeholder="Número de documento" aria-label="default input example"
             required name="numero_documento" id="numero_documento" #documento="ngModel" [(ngModel)]="usuario.documento"
             documento>
+            <div *ngIf="documento.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="documento.invalid && (documento.dirty || documento.touched)">
+                   Documento es obligatorio
+                </div>
+            </div>
         <label for="nombre">Nombre</label>
         <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example" required
             name="nombre" id="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre" nombre>
+            <div *ngIf="nombre.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                   Nombre es obligatorio
+                </div>
+            </div>
         <label for="apellido">Apellido</label>
         <input class="form-control" type="text" placeholder="apellido" aria-label="default input example" required
             name="apellido" id="apellido" #apellido="ngModel" [(ngModel)]="usuario.apellido" apellido>
+            <div *ngIf="apellido.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                   Apellido es obligatorio
+                </div>
+            </div>
         <label for="direccion">Dirección</label>
         <input class="form-control" type="text" placeholder="Dirección" aria-label="default input example" required
             name="direccion" id="direccion" #direccion="ngModel" direccion [(ngModel)]="usuario.direccion">
+            <div *ngIf="direccion.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                   Dirección es obligatorio
+                </div>
+            </div>
         <label for="telefono">Telefono</label>
         <input class="form-control" type="text" placeholder="Telefono" aria-label="default input example" required
             name="telefono" id="telefono" #telefono="ngModel" telefono [(ngModel)]="usuario.telefono">
+            <div *ngIf="telefono.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                   Telefono es obligatorio
+                </div>
+            </div>
         <label for="correo">Correo</label>
         <input class="form-control" type="email" placeholder="Correo" aria-label="default input example" required
             name="correo" id="correo" #correo="ngModel" [(ngModel)]="usuario.correo" correo>
+            <div *ngIf="correo.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                   Correo es obligatorio
+                </div>
+            </div>
         <label for="clave">Clave</label>
         <input class="form-control" type="password" placeholder="Clave" aria-label="default input example" required
             name="clave" id="clave" #clave="ngModel" [(ngModel)]="usuario.clave" clave>
+            <div *ngIf="clave.errors?.['required']">
+                <div class="alert alert-warning form-alert-show"
+                    *ngIf="clave.invalid && (clave.dirty || clave.touched)">
+                   CLave es obligatorio
+                </div>
+            </div>
         <hr>
-        <button class="btn btn-primary" (click)="registrarUsuario()">Registrar</button>
+        <div class="valid-data" *ngIf="formUsuario.form.valid">
+            <button class="btn btn-primary" (click)="registrarUsuario()">Registrar</button>
+        </div>
+        
 
     </form>
 </div>
